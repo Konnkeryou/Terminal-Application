@@ -54,7 +54,29 @@ def play_loop():
         print("Sad to see you go... Catch ya next time!!")
         exit()
 
+# conditons of the game !
 
+def hangman():
+    global count
+    global display 
+    global word
+    global already_guessed 
+    global play_game 
+    limit = 5
+    guess = input("Whats the word: " + display + "Enter your guess: \n")
+    guess= guess.strip()
+    if len(guess.strip()) == 0 or len(guess.strip()) >= 2 or guess <= "9":
+        print("Invalid input, Try a letter son \n")
+        hangman()
+    elif guess in word:
+        already_guessed.extend([guess])
+        index= word.find(guess)
+        word = word [:index] + "_" + word[index + 1:]
+        display= display[:index] + guess + display [index +1:]
+        print(display + "\n")
+
+    elif already_guessed:
+        print("Try another letter.")
 
 
 

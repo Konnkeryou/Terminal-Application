@@ -31,7 +31,7 @@ def main():
     word = random.choice(words_to_guess)
     length = len(word)
     count = 0
-    display = '_' * length
+    display = ' _ ' * length
     already_guessed = []
     play_game = ""
 
@@ -57,7 +57,7 @@ def hangman():
     global already_guessed
     global play_game
     limit = 5
-    guess = input("What is the Hangman Word: " + display + " Enter your guess: \n")
+    guess = input("What is the Hangman Word:  " + display + "  Enter your guess: \n")
     guess = guess.strip()
     if len(guess.strip()) == 0 or len(guess.strip()) >= 2 or guess <= "9":
         print("Invalid Input, Try a letter\n")
@@ -71,10 +71,10 @@ def hangman():
         print(display + "\n")
 
     elif guess in already_guessed:
-        print("Try another letter.")
+        print("Try another letter.\n")
 
     else:
-        count += 1 
+        count += 1
 
     if count == 1:
             time.sleep(1)
@@ -140,7 +140,7 @@ def hangman():
             play_loop()
 
     if word == '_' * length:
-        print("Congrats! You have guessed the word correctly!")
+        print("Well done! You have guessed the word correctly!")
         play_loop()
 
     elif count != limit:

@@ -3,12 +3,7 @@ import time
 
 # Intro into the game 
 
-print(" (     (  ) )   ( .          ) )                .     ")    
-print(" )\    )\(\( (  (\  (  ( (  (\(            )\ )\  (    ")     
-print("(_)  ((())(|)\ (\  )\ )\)\  )(|          ((_)(_) )\   ")  
-print("\ \    / /()\| |( )((_)_((_) ()\          |_   _|((_)  ")   
-print(" \ \/\/ // -_) | _| _ \ '  \/ -_)           | | / _ \  ")  
-print("  \_/\_/ \___|_|__|___/_|_|_|___|           |_| \___/  ")   
+
 print( "(   .  (   ((   (     (( (       .  (   (        ( (  (   ((     )       (   (  (   (( " )  
 print( ")\   . )\  ))\  )\   (\())\       . )\  )\       )\)\ )\  ))\   ())      )\: )\ )\  ))\  ")
 print( "((_)__ ((_)((_)))(_)__)(_)(_)       ((_)((_)     (_)(_)_()((_)))(()))    ((_)((_)_()((_)))")
@@ -37,7 +32,7 @@ def main():
     word =  random.choice(words_to_guess)
     length= len(word)
     count= 0
-    display= '_' * length
+    display= ' _ ' * length
     already_guessed = []
     play_game= ""
 
@@ -71,7 +66,7 @@ def hangman():
     elif guess in word:
         already_guessed.extend([guess])
         index= word.find(guess)
-        word = word [:index] + "_" + word[index + 1:]
+        word = word [:index] + " _ " + word[index + 1:]
         display= display[:index] + guess + display [index +1:]
         print(display + "\n")
 
@@ -82,3 +77,5 @@ def hangman():
 
 
 
+main()
+hangman()

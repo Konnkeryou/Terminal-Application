@@ -107,6 +107,25 @@ def displayBoard(missedLetters, correctLetters, secretWord):
         if secretWord[i] in correctLetters:
             blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
 
+#Displaying the hangman word with spaces in between the letters
+    for letter in blanks: 
+        print(letter, end=' ' )
+        print()
+
+#Error checking, making sure players enter a single letter
+def getGuess (alreadyGuessed):
+    while True: 
+        print('Pick a letter.')
+        guess = input()
+        guess = guess.lower()
+        if len(guess) != 1: 
+            print('Please try a single letter. ')
+        elif guess in alreadyGuessed:
+            print ('Nope! you have already guessed that mane. Try another letter')
+        elif guess not in 'abcdefghijklmnoqrstuvwxyz':
+            print('Please enter a LETTER')
+        else: 
+            return guess  
 
 
 

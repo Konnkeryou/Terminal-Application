@@ -13,6 +13,7 @@ print( "|_|\_\\___/|_|\_|_|\_\___|_|_\      \___/|_|_\    |_||_|_|_|_|\_|\___|  
 
 name = input("Enter your name: ")
 print("What's up " + name + "! Best of Luck!")
+# the time code waits before excuting
 time.sleep(2)
 print("game loading...!")
 time.sleep(3)
@@ -162,7 +163,7 @@ while True:
              game_is_done = True
      else:
          missed_letters = missed_letters + guess
-
+         # Tells the user the amount of missed guesses 
          if len(missed_letters) == len(HANGINGMAN_GRAPHIC) - 1:
              display_board(missed_letters, correct_letters, secret_word)
              print('Ahh Sorry mate! you have run out of guesses!\nAfter ' +

@@ -127,20 +127,20 @@ def getGuess (alreadyGuessed):
         else: 
             return guess  
 
-
-
 # Loops to restart the Game:
 
-def play_loop():
-    global play_game
-    play_game = input("Do You want to play again? y = yes, n = no \n")
-    while play_game not in ["y", "n","Y","N"]:
-        play_game = input("Do You want to play again? y = yes, n = no \n")
-    if play_game == "y":
-        main()
-    elif play_game == "n":
-        print("Sad to see you go! Catch ya soon!")
-        exit()
+def playLoop():
+    print('Do you want to have another go? (yes or no)')
+    return input().lower().startswith('y')
+
+print('HANGMAN')
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words_to_guess)
+gameIsDone = False 
+
+while True:
+    displayBoard(missedLetters, correctLetters, secretWord)
 
 # setting up the conditions needed for the game:
 def hangman():

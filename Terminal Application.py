@@ -153,4 +153,8 @@ while True:
                 found_all_letters = False
                 break
         if found_all_letters:
-            print()
+            print('Yeah boii!! The word is "' + secret_word + '"! You have Konkered!')
+            game_is_done = True
+    else:
+        missed_letters = missed_letters + guess 
+        

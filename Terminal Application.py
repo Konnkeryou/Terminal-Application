@@ -157,4 +157,8 @@ while True:
             game_is_done = True
     else:
         missed_letters = missed_letters + guess 
-        
+
+        if len(missed_letters) == len(HANGINGMAN_GRAPHIC) - 1:
+            display_board(missed_letters, correct_letters, secret_word)
+            print('Ahh Sorry mate, You have run out of guesses!\nAfter ' + str(len(missed_letters)) + ' missed guesses and ' + str(len(correct_letters)) + ' correct guesses, the word was " ' + secret_word + '"')
+            game_is_done = True 

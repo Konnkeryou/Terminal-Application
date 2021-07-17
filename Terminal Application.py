@@ -137,7 +137,7 @@ def play_again():
      print('Do you want to have another go? (yes or no)')
      return input().lower().startswith('y')
 
-print('K O N K E R  O R  H A N G M A N')
+print('K O N K E R  O R  H A N G M A N !')
 missed_letters = ''
 correct_letters = ''
 secret_word = get_random_word(words)

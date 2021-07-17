@@ -7,11 +7,14 @@ The purpose of "Konker or Hangman" is stimulate your mind and improve your vocab
 The games objective is to guess the word/phrase before your man gets hanged!
 The Target audience is anyone looking to kill time by playing a mind stimulating game.  
 
+## System requirements
+ 
+There are no system requirements for this game, it should just be able to run on any computer's terminal, although not tested in windows. 
+
+
 ### Game Instructions
 
 On the Screen there are a number of dashes, equivalent to the length of the secret word. The goal is to correctly guess the secret word. If a guessing player correctly guesses a letter than is in the secret word, the computer will place that letter in the right place in one of the dashes. If the letter does not appear in the secret word, then the computer will draw one element of a Hangmans Gallows. As the game continues, a feature of the Gallow and a victim is added for every incorrect guess not in the secret word. The number of incorrect guesses before the game ends with the victim hanged is seven. 
-
-
 
 
 ## Functions 

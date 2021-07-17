@@ -29,26 +29,25 @@ def get_random_word(word_list):
 
 #Displaying the hangman graphics
 def display_board(missed_letters, correct_letters, secret_word):
-     print(HANGINGMAN_GRAPHIC[len(missed_letters)])
-     print()
-
-     print('Missed letters:', end=' ')
-     for letter in missed_letters:
-         print(letter, end=' ')
-     print()
+    print(HANGINGMAN_GRAPHIC[len(missed_letters)])
+    print()
+    print('Missed letters:', end=' ')
+    for letter in missed_letters:
+        print(letter, end=' ')
+    print()
 
 
 #placing correctly guessed words in the spaces 
-     blanks = '_' * len(secret_word)
+    blanks = '_' * len(secret_word)
 
-     for i in range(len(secret_word)):
+    for i in range(len(secret_word)):
          if secret_word[i] in correct_letters:
              blanks = blanks[:i] + secret_word[i] + blanks[i+1:]
 
 #Displaying the hangman word with spaces in between the letters
-     for letter in blanks: 
-         print(letter, end=' ')
-     print()
+    for letter in blanks: 
+        print(letter, end=' ')
+    print()
 
 #Error checking, making sure players enter a single letter
 def get_guess(already_guessed):

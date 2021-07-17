@@ -86,26 +86,26 @@ HANGINGMAN_GRAPHIC = [ '''
 
 words_to_guess = ' ivy console camera awesome mother coding python warzone basketball earth future computer artificial coffee speaker mirror abstract glass moonlight'.split() 
 #Random function 
-def getRandomWord(wordlist):
-    wordIndex = random.randit (0, len(wordlist) - 1)
-    return wordlist[wordIndex]
+def get_randomWord(word_list):
+    word_index = random.randit (0, len(word_list) - 1)
+    return word_list[word_index]
 
 #Displaying the hangman graphics
-def displayBoard(missedLetters, correctLetters, secretWord): 
-    print(HANGINGMAN_GRAPHIC[len(missedLetters)])
+def display_board(missed_letters, correct_letters, secret_word): 
+    print(HANGINGMAN_GRAPHIC[len(missed_letters)])
     print()
 
     print ('Missed letters:', end =' ')
-    for letter in missedLetters:
+    for letter in missed_letters:
         print(letter, end=' ')
         print()
 
-    blank = '_' * len(secretWord)
+    blank = '_' * len(secret_word)
 
 #placing correctly guessed words in the spaces 
-    for i in range(len(secretWord)):
-        if secretWord[i] in correctLetters:
-            blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+    for i in range(len(secret_word)):
+        if secret_word[i] in correct_letters:
+            blanks = blanks[:i] + secret_word[i] + blanks[i+1:]
 
 #Displaying the hangman word with spaces in between the letters
     for letter in blanks: 
@@ -113,14 +113,14 @@ def displayBoard(missedLetters, correctLetters, secretWord):
         print()
 
 #Error checking, making sure players enter a single letter
-def getGuess (alreadyGuessed):
+def get_guess (already_guessed):
     while True: 
         print('Pick a letter.')
         guess = input()
         guess = guess.lower()
         if len(guess) != 1: 
             print('Please try a single letter. ')
-        elif guess in alreadyGuessed:
+        elif guess in already_guessed:
             print ('Nope! you have already guessed that mane. Try another letter')
         elif guess not in 'abcdefghijklmnoqrstuvwxyz':
             print('Please enter a LETTER')
@@ -129,34 +129,28 @@ def getGuess (alreadyGuessed):
 
 # Loops to restart the Game:
 
-def playLoop():
+def play_loop():
     print('Do you want to have another go? (yes or no)')
     return input().lower().startswith('y')
 
 print('HANGMAN')
-missedLetters = ''
-correctLetters = ''
-secretWord = getRandomWord(words_to_guess)
-gameIsDone = False 
+missed_letters = ''
+correct_letters = ''
+secret_word = get_randomWord(words_to_guess)
+game_is_done = False 
 
 while True:
-    displayBoard(missedLetters, correctLetters, secretWord)
+    display_board(missed_letters, correct_letters, secret_word)
 
-# setting up the conditions needed for the game:
-def hangman():
-    global count
-    global display
-    global word
-    global already_guessed
-    global play_game
-    limit = 5
-    guess = input("What is the Hangman Word: " + display + " Enter your guess: \n")
-    guess = guess.strip()
-    if len(guess.strip()) == 0 or len(guess.strip()) >= 2 or guess <= "9":
-        print("Invalid Input, Try a letter\n")
-        hangman()       
+    guess = get_guess(missed_letters + correct_letters)
 
-
-main()
-
-hangman()
+    if guess in secret_word:
+        correct_letters = correct_letters + guess
+#checks if the player has won
+        found_all_letters = True
+        for i in range(len(secret_word)): 
+            if secret_word[i] not in correct_letters:
+                found_all_letters = False
+                break
+        if found_all_letters:
+            print()

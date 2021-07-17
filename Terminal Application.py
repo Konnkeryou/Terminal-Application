@@ -52,13 +52,13 @@ def display_board(missed_letters, correct_letters, secret_word):
 #Error checking, making sure players enter a single letter
 def get_guess(already_guessed):
      while True:
-         print('Pick a letter.')
+         print('Guess a letter.')
          guess = input()
          guess = guess.lower()
          if len(guess) != 1:
              print('Please enter a single letter.')
          elif guess in already_guessed:
-             print ('Nope! you have already guessed that mane. Try another letter')
+             print('You have already guessed that letter. Choose again.')
          elif guess not in 'abcdefghijklmnopqrstuvwxyz':
              print('Please enter a LETTER.')
          else:
@@ -132,48 +132,51 @@ HANGINGMAN_GRAPHIC = [ '''
 
 # Loops to restart the Game:
 
-def play_loop():
-    print('Do you want to have another go? (yes or no)')
-    return input().lower().startswith('y')
+def play_again():
+     print('Do you want to have another go? (yes or no)')
+     return input().lower().startswith('y')
 
-print('HANGMAN')
+print('K O N K E R  O R  H A N G M A N')
 missed_letters = ''
 correct_letters = ''
 secret_word = get_random_word(words)
-game_is_done = False 
+game_is_done = False
 
 while True:
-    display_board(missed_letters, correct_letters, secret_word)
+     display_board(missed_letters, correct_letters, secret_word)
 
-    guess = get_guess(missed_letters + correct_letters)
+     guess = get_guess(missed_letters + correct_letters)
 
-    if guess in secret_word:
-        correct_letters = correct_letters + guess
+     if guess in secret_word:
+         correct_letters = correct_letters + guess
 
-#checks if the player has won
-        found_all_letters = True
-        for i in range(len(secret_word)): 
-            if secret_word[i] not in correct_letters:
-                found_all_letters = False
-                break
-        if found_all_letters:
-            print('Yeah boii!! The word is "' + secret_word + '"! You have Konkered!')
-            game_is_done = True
-    else:
-        missed_letters = missed_letters + guess 
+         # Checks if theres a win.
+         found_all_letters = True
+         for i in range(len(secret_word)):
+             if secret_word[i] not in correct_letters:
+                 found_all_letters = False
+                 break
+         if found_all_letters:
+             print('Congrats Mate! The word is "' + secret_word +
+               '"! Well done!')
+             game_is_done = True
+     else:
+         missed_letters = missed_letters + guess
 
-        if len(missed_letters) == len(HANGINGMAN_GRAPHIC) - 1:
-            display_board(missed_letters, correct_letters, secret_word)
-            print('Ahh Sorry mate, You have run out of guesses!\nAfter ' + str(len(missed_letters)) + ' missed guesses and ' + str(len(correct_letters)) + ' correct guesses, the word was "' + secret_word + '"')
-            game_is_done = True 
+         if len(missed_letters) == len(HANGINGMAN_GRAPHIC) - 1:
+             display_board(missed_letters, correct_letters, secret_word)
+             print('Ahh Sorry mate! you have run out of guesses!\nAfter ' +
+               str(len(missed_letters)) + ' missed guesses and ' +
+               str(len(correct_letters)) + ' correct guesses, the word was "' + secret_word + '"')
+             game_is_done = True
 
 #ask player if they wanna restart the game  
-    if game_is_done:
-        if play_loop():
-            missed_letters = ''
-            correct_letters = ''
-            game_is_done = False
-            secret_word = get_random_word(words)
-        else: 
-            break
+     if game_is_done:
+         if play_again():
+             missed_letters = ''
+             correct_letters = ''
+             game_is_done = False
+             secret_word = get_random_word(words)
+         else:
+             break
 

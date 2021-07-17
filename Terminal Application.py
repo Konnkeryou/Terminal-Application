@@ -14,25 +14,81 @@ print( "|_|\_\\___/|_|\_|_|\_\___|_|_\      \___/|_|_\    |_||_|_|_|_|\_|\___|  
 name = input("Enter your name: ")
 print("What's up " + name + "! Best of Luck!")
 time.sleep(2)
-print("game loading...!\n Let the Games Begin!!")
+print("game loading...!")
+time.sleep(3)
+print("Let the Games Begin!!")
 time.sleep(3)
 
-# Creating the main functions 
+HANGINGMAN_GRAPHIC = [ '''
+    +--------+
+    | 
+    |
+    |
+    |
+    |
+    |
+ ___|____
+|________| ''', '''
+    +--------+
+    |        +
+    |        O
+    |
+    |
+    |
+    |
+ ___|____
+|________| ''', '''
+    +--------+
+    |        +
+    |        O
+    |        |
+    |         
+    |
+    |
+ ___|____
+|________| ''', '''
+    +--------+
+    |        +
+    |        O
+    |      / |
+    |         
+    |
+    |
+ ___|____
+|________| ''', '''
+    +--------+
+    |        +
+    |        O
+    |      / | \ 
+    |         
+    |
+    |
+ ___|____
+|________| ''', '''
+    +--------+
+    |        +
+    |        O
+    |      / | \ 
+    |       /   
+    |
+    |
+ ___|____
+|________| ''', '''
+    +--------+
+    |        +
+    |        O
+    |      / | \ 
+    |       /  \  
+    |
+    |
+ ___|____
+|________| ''',]
 
-def main():
-    global count
-    global display
-    global word
-    global already_guessed
-    global length
-    global play_game
-    words_to_guess = ["ivy","console","camera","awesome","mother","coding","python","warzone","basketball","earth","future"]
-    word = random.choice(words_to_guess)
-    length = len(word)
-    count = 0
-    display = '_' * length
-    already_guessed = []
-    play_game = ""
+words_to_guess = ' ivy console camera awesome mother coding python warzone basketball earth future computer artificial coffee speaker mirror abstract glass moonlight'.split() 
+#Random function 
+def getRandomWord(wordlist):
+    wordIndex = random.randit (0, len(wordlist) - 1)
+    return wordlist[wordIndex]
 
 # Loops to restart the Game:
 

@@ -143,6 +143,7 @@ correct_letters = ''
 secret_word = get_random_word(words)
 game_is_done = False
 
+#Checks if users guess is in the secret word
 while True:
      display_board(missed_letters, correct_letters, secret_word)
 

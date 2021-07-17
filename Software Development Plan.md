@@ -11,6 +11,9 @@ The Target audience is anyone looking to kill time by playing a mind stimulating
  
 There are no system requirements for this game, it should just be able to run on any computer's terminal, although not tested in windows. 
 
+## Running the game:
+User should be able to run the game straight in the terminal by navigating to relative path and executing ( python3 konkerorhangman.py) 
+
 
 ### Game Instructions
 

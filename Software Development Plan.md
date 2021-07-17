@@ -1,12 +1,12 @@
 
-                                        Software Development Plan 
+# Software Development Plan 
 
-Purpose of the Application 
+## Purpose of the Application 
 
     The purpose of "Konker or Hangman" is stimulate your mind and improve your vocabulary in a fun way. 
     Also guess the word/phrase before your man gets hanged! 
 
-    Game Instructions
+### Game Instructions
 
         On the Screen there are a number of dashes, equivalent to the length of the secret word. The goal is to correctly
         guess the secret word. If a guessing player correctly guesses a letter than is in the secret word, the computer 
@@ -16,16 +16,16 @@ Purpose of the Application
 
 
 
-Functions 
+## Functions 
 
-    Get Random word - 
+### Get Random word - 
         I've used the get random function to take a random word from my list for players to guess. 
 
-    Display the board ( guessed words, missed guessed, secret word) - 
+### Display the board ( guessed words, missed guessed, secret word) - 
         It displays the current board, such as words guessed by the player so far and the words guessed wrong. secretword has no return value, its the word the player is trying to guess. 
 
-    Get guess (already guessed ) - 
+### Get guess (already guessed ) - 
         takes a string of the players guessed letters and keeps asking for a letter that hasn't already been guessed. Returns the value of a the valid letter the player has guessed. 
 
-    Play again - 
+### Play again - 
         Ask players if they would like to have another go. It will return True if yes or False and exits if no. 
